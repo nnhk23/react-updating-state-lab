@@ -17,13 +17,9 @@ export default class YouTubeDebugger extends React.Component{
 
     changeBitrate = () => {
         this.setState({
-            errors: [],
-            user: null,
             settings: {
-                bitrate: 12,
-                video: {
-                    resolution: '1080p'
-                }
+                ...this.state.settings,
+                bitrate: 12
             }
         })
     }
@@ -33,7 +29,7 @@ export default class YouTubeDebugger extends React.Component{
             errors: [],
             user: null,
             settings: {
-                bitrate: 8,
+                ...this.state.settings,
                 video: {
                     resolution: '720p'
                 }
@@ -42,6 +38,7 @@ export default class YouTubeDebugger extends React.Component{
     }
 
     render() {
+        
         return (
             <div>
                 <button className='bitrate' onClick={this.changeBitrate}>Change Bitrate</button>
